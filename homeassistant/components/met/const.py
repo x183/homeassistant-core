@@ -191,7 +191,7 @@ FORECAST_MAP = {
     ATTR_FORECAST_NATIVE_WIND_SPEED: "wind_speed",
     ATTR_FORECAST_NATIVE_WIND_GUST_SPEED: "wind_gust",
     ATTR_FORECAST_CLOUD_COVERAGE: "cloudiness",
-    ATTR_FORECAST_HUMIDITY: "humidity",
+    ATTR_FORECAST_HUMIDITY: "luftfuktighet",
     ATTR_FORECAST_UV_INDEX: "uv_index",
 }
 
