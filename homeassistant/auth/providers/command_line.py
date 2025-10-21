@@ -69,11 +69,15 @@ class CommandLineAuthProvider(AuthProvider):
         """Validate a username and password."""
         env = {"username": username, "password": password}
         try:
+            process_stdout = None
+            if self.config[CONF_META]:
+                process_stdout = asyncio.subprocess.PIPE
+
             process = await asyncio.create_subprocess_exec(
                 self.config[CONF_COMMAND],
                 *self.config[CONF_ARGS],
                 env=env,
-                stdout=asyncio.subprocess.PIPE if self.config[CONF_META] else None,
+                stdout=process_stdout,
                 close_fds=False,  # required for posix_spawn
             )
             stdout, _ = await process.communicate()
