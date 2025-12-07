@@ -144,6 +144,3 @@ pytest_buckets.txt
 
 # SonarQube
 .sonar/
-
-# PyCharm run task configurations
-.run/
