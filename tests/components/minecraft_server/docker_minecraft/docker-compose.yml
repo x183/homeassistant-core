@@ -1,0 +1,54 @@
+version: "3.9"
+
+services:
+  mc1:
+    image: itzg/minecraft-server
+    container_name: mc1
+    environment:
+      EULA: "TRUE"
+      TYPE: VANILLA
+      VERSION: "1.20.4"
+      MEMORY: 512M
+    ports:
+      - "25562:25565"
+    volumes:
+      - mc1-data:/data
+    networks: [mcnet]
+
+  mc2:
+    image: itzg/minecraft-server
+    container_name: mc2
+    environment:
+      EULA: "TRUE"
+      TYPE: VANILLA
+      VERSION: "1.20.4"
+      MEMORY: 512M
+    ports:
+      - "25563:25565"
+    volumes:
+      - mc2-data:/data
+    networks: [mcnet]
+
+  mc3:
+    image: itzg/minecraft-server
+    container_name: mc3
+    environment:
+      EULA: "TRUE"
+      TYPE: VANILLA
+      VERSION: "1.20.4"
+      MEMORY: 512M
+    ports:
+      - "25564:25565"
+    volumes:
+      - mc3-data:/data
+    networks: [mcnet]
+
+networks:
+  mcnet:
+    driver: bridge
+
+volumes:
+  mc1-data:
+  mc2-data:
+  mc3-data:
+  mc4-data:
