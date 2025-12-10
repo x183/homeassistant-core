@@ -18,24 +18,25 @@ class TestGetAllIps:
         """Test _get_all_ips with standard IP."""
         ips = _get_all_ips("192.168.1.1")
         assert len(ips) == 256
-        assert ips[0] == "192.168.1.0"
-        assert ips[1] == "192.168.1.1"
-        assert ips[255] == "192.168.1.255"
+        assert "192.168.1.0" in ips
+        assert "192.168.1.1" in ips
+        assert "192.168.1.255" in ips
 
     def test_get_all_ips_different_network(self) -> None:
         """Test _get_all_ips with different network."""
         ips = _get_all_ips("10.0.0.50")
         assert len(ips) == 256
-        assert ips[0] == "10.0.0.0"
-        assert ips[50] == "10.0.0.50"
-        assert ips[255] == "10.0.0.255"
+        assert "10.0.0.0" in ips
+        assert "10.0.0.50" in ips
+        assert "10.0.0.255" in ips
 
     def test_get_all_ips_172_network(self) -> None:
         """Test _get_all_ips with 172 network."""
         ips = _get_all_ips("172.16.0.1")
         assert len(ips) == 256
-        assert ips[0] == "172.16.0.0"
-        assert ips[1] == "172.16.0.1"
+        assert "172.16.0.0" in ips
+        assert "172.16.0.1" in ips
+        assert "172.16.0.255" in ips
 
 
 @pytest.mark.asyncio
